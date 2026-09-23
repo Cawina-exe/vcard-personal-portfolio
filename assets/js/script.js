@@ -157,3 +157,58 @@ for (let i = 0; i < navigationLinks.length; i++) {
 
   });
 }
+// Handle URL hash to open specific tabs on load
+window.addEventListener("DOMContentLoaded", () => {
+  if (window.location.hash) {
+    const hashPage = window.location.hash.substring(1).toLowerCase();
+    const targetLink = Array.from(navigationLinks).find(link => link.innerHTML.toLowerCase() === hashPage);
+    if (targetLink) {
+      targetLink.click();
+    }
+  }
+});
+// Project Details Navigation
+const projectLinks = document.querySelectorAll('[data-project-link]');
+const portfolioPage = document.querySelector('[data-page="portfolio"]');
+const projectArticles = document.querySelectorAll('.project-details-article');
+const backToPortfolioBtns = document.querySelectorAll('[data-back-btn]');
+
+projectLinks.forEach(link => {
+  link.addEventListener('click', function(e) {
+    e.preventDefault();
+    const targetId = this.getAttribute('href').substring(1);
+    
+    // Hide all main pages from top navbar
+    pages.forEach(p => p.classList.remove('active'));
+    // Remove active state from top navbar
+    navigationLinks.forEach(n => n.classList.remove('active'));
+    
+    // Hide all project articles
+    projectArticles.forEach(p => p.classList.remove('active'));
+    
+    // Show target project
+    const targetProject = document.getElementById(targetId);
+    if(targetProject) {
+      targetProject.classList.add('active');
+      window.scrollTo(0, 0);
+    }
+  });
+});
+
+backToPortfolioBtns.forEach(btn => {
+  btn.addEventListener('click', function(e) {
+    e.preventDefault();
+    
+    // Hide all project articles
+    projectArticles.forEach(p => p.classList.remove('active'));
+    
+    // Show portfolio
+    portfolioPage.classList.add('active');
+    
+    // Set portfolio navbar link to active
+    const portLink = Array.from(navigationLinks).find(link => link.innerHTML.toLowerCase() === 'portfolio');
+    if(portLink) portLink.classList.add('active');
+    
+    window.scrollTo(0, 0);
+  });
+});
