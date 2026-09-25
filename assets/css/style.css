@@ -1946,3 +1946,20 @@ textarea.form-input::-webkit-resizer { display: none; }
   filter: brightness(1.15);
   box-shadow: 0 8px 15px hsla(0, 0%, 0%, 0.4) !important;
 }
+
+/* --- Skill Tags --- */
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.skill-tag {
+  background: var(--onyx);
+  padding: 5px 12px;
+  border-radius: 8px;
+  color: var(--light-gray);
+  font-size: var(--fs-7);
+  border: 1px solid var(--jet);
+  font-weight: var(--fw-300);
+}
