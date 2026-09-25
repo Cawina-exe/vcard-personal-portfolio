@@ -1951,15 +1951,15 @@ textarea.form-input::-webkit-resizer { display: none; }
 .skill-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 10px;
 }
 
 .skill-tag {
-  background: var(--onyx);
-  padding: 5px 12px;
+  background: var(--border-gradient-onyx);
+  padding: 6px 14px;
   border-radius: 8px;
-  color: var(--light-gray);
-  font-size: var(--fs-7);
-  border: 1px solid var(--jet);
-  font-weight: var(--fw-300);
+  color: var(--white-1);
+  font-size: var(--fs-6);
+  box-shadow: var(--shadow-1);
+  font-weight: var(--fw-400);
 }
